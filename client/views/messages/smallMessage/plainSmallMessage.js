@@ -67,6 +67,16 @@ Template.plainSmallMessage.helpers({
             case 2: return 232;
             default: return 300;
         }
+    },
+  isMessageFromLastUser: function() {
+    var template = Template.instance().parent();
+    console.log(template);
+    console.log(template.lastMessageUserId);
+    var lastMessageId = template && template.lastMessageUserId;
+    console.log(lastMessageId);
+    var sameMessage = template.lastMessageUserId === this.authorId;
+    template.lastMessageUserId = this.authorId;
+    return sameMessage;
     }
 });
 
@@ -114,5 +124,9 @@ Template.plainSmallMessage.events({
     },
 });
 Template.plainSmallMessage.onRendered(function(){
-    this.$('.ui.accordion').accordion();
+  this.$('.ui.accordion').accordion();
 });
+Template.plainSmallMessage.onCreated(function(){
+  console.log('im on created in the child')
+});
+

@@ -41,6 +41,9 @@
                     <button class="messageEditSubmit">save</button>
                     <button class="canceleEditSubmit">cancel</button>
                 {{else}}
+                    {{#if isMessageFromLastUser}}
+                      SAME MESSAGE
+                    {{/if}}
                     <span class="clickableMessageBody" style="font-size: {{fontSizePercent}}%">
                         {{{finalMessageBody}}}
                     </span>

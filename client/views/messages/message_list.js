@@ -8,6 +8,7 @@ Template.messageList.helpers({
 });
 
 Template.messageList.created = function(){
+    this.lastMessageUserId = '';
     scrollChatToBottom();
 };
 Template.messageList.events({
